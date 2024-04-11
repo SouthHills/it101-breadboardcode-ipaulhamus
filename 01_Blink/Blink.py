@@ -1,26 +1,27 @@
-from gpiozero import LED as LEDClass # Alias
+from gpiozero import LED
 import time
 
-LED = LEDClass(17)  # define led
+led = LED(17)  # define led
+led2 = LED(27)
 
 def loop():
-    global LED
     while True:
-        LED.on() 
-        print ("led turned on >>>") # print information on terminal
+        led2.off()
+        led.on() 
+        print ("\nled1 turned on >>>") # print information on terminal
         time.sleep(1)
-        LED.off()
-        print ("led turned off <<<")
+        led2.on()
+        led.off()
+        print ("\nled2 turned on <<<")
         time.sleep(1)
         
 def destroy():
-    global LED
     # Release resources
-    LED.close()
+    led.close()
 
 if __name__ == "__main__":    # Program start point
     print("Program is starting ... \n")
-    print(f"Using pin {LED.pin}")
+    print(f"Using pin {led.pin}")
     try:
         loop()
     except KeyboardInterrupt:   # Press ctrl-c to end the program.
