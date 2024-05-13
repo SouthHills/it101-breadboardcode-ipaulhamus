@@ -48,7 +48,7 @@ def do_keypress_event(current_direction):
     # Can't double-back on your snake
     if stick.get_direction() == "Left":
         return "LEFT"
-    elif stick.get_direction() == "Down":
+    elif stick.get_direction() == "Right":
         return "RIGHT"
     elif stick.get_direction() == "Up":
         return "UP"
